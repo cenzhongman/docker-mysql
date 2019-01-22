@@ -1,7 +1,7 @@
 # Author:cenzhongman
 # E-mail:cenzhongman@163.com
 
-version: '3.1'
+version: '2'
 
 services:
   mysql:
@@ -12,8 +12,11 @@ services:
       - 3306:3306
     volumes: 
       - mysql:/var/lib/mysql
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
     environment:
       MYSQL_ROOT_PASSWORD: YOUR_PASSWORD
 
 volumes: 
   mysql:
+    external: true
